@@ -2,7 +2,8 @@
 
 // Update these two values when connecting a different creator account.
 const socialConfig = {
-  instagramUrl: "https://www.instagram.com/maisonmora.home/"
+  instagramUrl: "https://www.instagram.com/maisonmora.home/",
+  instagramDmUrl: "https://ig.me/m/maisonmora.home"
 };
 
 // Sample data is deliberately separate from rendering so it can later come from an API.
@@ -76,6 +77,7 @@ let toastTimer;
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
 $$("[data-instagram]").forEach(link => { link.href = socialConfig.instagramUrl; });
+$$("[data-instagram-contact]").forEach(link => { link.href = socialConfig.instagramDmUrl; });
 $(".instagram-handle").textContent = `@${new URL(socialConfig.instagramUrl).pathname.split("/").filter(Boolean)[0]}`;
 
 function showToast(message) {
@@ -84,6 +86,30 @@ function showToast(message) {
   toast.classList.add("show");
   clearTimeout(toastTimer);
   toastTimer = setTimeout(() => toast.classList.remove("show"), 2800);
+}
+function copyInstagramMessage(message) {
+  if (!navigator.clipboard || !navigator.clipboard.writeText) {
+    showToast("Instagram opened. Copy the details and image links; attach photos separately.");
+    return;
+  }
+  navigator.clipboard.writeText(message).then(
+    () => showToast("Order message copied. Paste it into Instagram; attach photos separately."),
+    error => {
+      console.warn("Could not copy Instagram message:", error);
+      showToast("Instagram opened. Copy the details and image links; attach photos separately.");
+    }
+  );
+}
+function productInquiryMessage(product, quantity = 1) {
+  return `Hello, I would like to buy this product from Maisonmora.Home:\n\nProduct Name: ${product.name}\nPrice: ${money(product.price)}\nQuantity: ${quantity}\nProduct Image: ${product.image}\n\nPlease confirm availability, delivery, and payment details.`;
+}
+function cartInquiryMessage() {
+  const lines = cart.map(item => {
+    const product = productById(item.id);
+    return `${item.quantity} x ${product.name} — ${money(product.price * item.quantity)}\nProduct Image: ${product.image}`;
+  });
+  const total = cart.reduce((sum, item) => sum + productById(item.id).price * item.quantity, 0);
+  return `Hello, I would like to order these products from Maisonmora.Home:\n\n${lines.join("\n\n")}\n\nSubtotal: ${money(total)}\n\nPlease confirm availability, delivery, and payment details.`;
 }
 function productCard(product) {
   const saved = wishlist.includes(product.id);
@@ -94,7 +120,7 @@ function productCard(product) {
       ${product.badge ? `<span class="product-badge">${product.badge}</span>` : ""}
       <button class="heart-button ${saved ? "saved" : ""}" data-wishlist="${product.id}" aria-label="${saved ? "Remove " + product.name + " from wishlist" : "Add " + product.name + " to wishlist"}" aria-pressed="${saved}">${saved ? "♥" : "♡"}</button>
     </div>
-    <div class="product-meta"><span class="product-category">${product.category}</span><div class="product-title-row"><h3>${product.name}</h3><strong>${money(product.price)}</strong></div><div class="rating" aria-label="Rated ${product.rating} out of 5">★★★★★ <span>${product.rating.toFixed(1)}</span></div><div class="product-actions"><button data-quick-view="${product.id}">VIEW DETAILS ↗</button><a href="${socialConfig.instagramUrl}" target="_blank" rel="noopener noreferrer">ASK ON INSTAGRAM ↗</a></div></div>
+    <div class="product-meta"><span class="product-category">${product.category}</span><div class="product-title-row"><h3>${product.name}</h3><strong>${money(product.price)}</strong></div><div class="rating" aria-label="Rated ${product.rating} out of 5">★★★★★ <span>${product.rating.toFixed(1)}</span></div><div class="product-actions"><button data-quick-view="${product.id}">VIEW DETAILS ↗</button><a href="${socialConfig.instagramDmUrl}" data-instagram-product="${product.id}" target="_blank" rel="noopener noreferrer">ASK ON INSTAGRAM ↗</a></div></div>
   </article>`;
 }
 function renderProducts() {
@@ -154,7 +180,7 @@ function openQuickView(id) {
   if (!modalProduct) return;
   modalQuantity = 1;
   $("#modal-body").innerHTML = `<div class="modal-gallery"><img class="modal-main-image" src="${modalProduct.image}" alt="${modalProduct.name}"><div class="modal-thumbs"><button class="selected" data-image="${modalProduct.image}" aria-label="View first image"><img src="${modalProduct.image}" alt=""></button><button data-image="${modalProduct.alternate}" aria-label="View second image"><img src="${modalProduct.alternate}" alt=""></button></div></div>
-    <div class="modal-info"><span class="eyebrow">${modalProduct.category} / HANDMADE WITH LOVE</span><h2 id="modal-title">${modalProduct.name}</h2><div class="rating">★★★★★ <span>${modalProduct.rating.toFixed(1)} / 5</span></div><p class="modal-price">${money(modalProduct.price)}</p><p class="modal-description">${modalProduct.description}</p><div class="quantity-row"><span>Quantity</span><div class="quantity-control"><button data-quantity="-1" aria-label="Decrease quantity">−</button><span id="modal-quantity">1</span><button data-quantity="1" aria-label="Increase quantity">+</button></div></div><div class="modal-actions"><a class="button button-dark" href="${socialConfig.instagramUrl}" target="_blank" rel="noopener noreferrer">ASK ABOUT THIS ON INSTAGRAM <span>↗</span></a><button class="button button-outline" id="add-to-cart">ADD TO BAG <span>↗</span></button></div><p class="modal-note">Handmade with care. Each piece is beautifully unique.<br>Sample products and imagery; availability is confirmed in conversation.</p></div>`;
+    <div class="modal-info"><span class="eyebrow">${modalProduct.category} / HANDMADE WITH LOVE</span><h2 id="modal-title">${modalProduct.name}</h2><div class="rating">★★★★★ <span>${modalProduct.rating.toFixed(1)} / 5</span></div><p class="modal-price">${money(modalProduct.price)}</p><p class="modal-description">${modalProduct.description}</p><div class="quantity-row"><span>Quantity</span><div class="quantity-control"><button data-quantity="-1" aria-label="Decrease quantity">−</button><span id="modal-quantity">1</span><button data-quantity="1" aria-label="Increase quantity">+</button></div></div><div class="modal-actions"><a class="button button-dark" href="${socialConfig.instagramDmUrl}" data-instagram-product="${modalProduct.id}" data-instagram-modal-product target="_blank" rel="noopener noreferrer">ASK ABOUT THIS ON INSTAGRAM <span>↗</span></a><button class="button button-outline" id="add-to-cart">ADD TO BAG <span>↗</span></button></div><p class="modal-note">Instagram opens a direct message. Paste the copied item details and image link; attach the image separately if needed.<br>Sample products and imagery; availability is confirmed in conversation.</p></div>`;
   $("#quick-view").showModal();
 }
 function renderDrawer() {
@@ -169,7 +195,7 @@ function renderDrawer() {
   content.innerHTML = entries.map(item => {
     const product = productById(item.id);
     return `<article class="drawer-item"><img src="${product.image}" alt="" loading="lazy"><div><h3>${product.name}</h3><p>${money(product.price)}${isCart ? ` · Qty ${item.quantity}` : ""}</p></div><button data-remove="${product.id}">REMOVE ×</button></article>`;
-  }).join("") + (isCart ? `<div class="drawer-total"><span>Subtotal</span><span>${money(cart.reduce((sum,item) => sum + productById(item.id).price * item.quantity,0))}</span></div><a class="button button-dark" href="${socialConfig.instagramUrl}" target="_blank" rel="noopener noreferrer">CONTACT US ON INSTAGRAM <span>↗</span></a><p class="drawer-disclaimer">Message us on Instagram to confirm availability and delivery. Your bag stays saved here until you remove its items.</p>` : `<p class="drawer-disclaimer">Your favourite pieces are saved in this browser.</p>`);
+  }).join("") + (isCart ? `<div class="drawer-total"><span>Subtotal</span><span>${money(cart.reduce((sum,item) => sum + productById(item.id).price * item.quantity,0))}</span></div><a class="button button-dark" href="${socialConfig.instagramDmUrl}" data-instagram-cart target="_blank" rel="noopener noreferrer">CONTACT US ON INSTAGRAM <span>↗</span></a><p class="drawer-disclaimer">Instagram opens a direct message. Paste the copied order details and image links; attach images separately if needed.</p>` : `<p class="drawer-disclaimer">Your favourite pieces are saved in this browser.</p>`);
 }
 function openDrawer(mode) {
   drawerMode = mode;
@@ -187,8 +213,15 @@ renderProducts(); renderBestsellers(); updateCounts(); renderReview();
 document.addEventListener("click", event => {
   const wishlistButton = event.target.closest("[data-wishlist]");
   const quickButton = event.target.closest("[data-quick-view]");
+  const productInquiryLink = event.target.closest("[data-instagram-product]");
+  const cartInquiryLink = event.target.closest("[data-instagram-cart]");
   if (wishlistButton) toggleWishlist(wishlistButton.dataset.wishlist);
   if (quickButton) openQuickView(quickButton.dataset.quickView);
+  if (productInquiryLink) {
+    const product = productById(productInquiryLink.dataset.instagramProduct);
+    if (product) copyInstagramMessage(productInquiryMessage(product, productInquiryLink.hasAttribute("data-instagram-modal-product") ? modalQuantity : 1));
+  }
+  if (cartInquiryLink && cart.length) copyInstagramMessage(cartInquiryMessage());
 });
 ["category-filter","price-filter","sort-filter"].forEach(id => $(`#${id}`).addEventListener("change",renderProducts));
 $("#product-search").addEventListener("input",renderProducts);
