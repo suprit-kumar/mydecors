@@ -2,8 +2,7 @@
 
 // Update these two values when connecting a different creator account.
 const socialConfig = {
-  whatsappNumber: "919019134876",
-  instagramUrl: "https://www.instagram.com/suprit_mohanta/"
+  instagramUrl: "https://www.instagram.com/maisonmora.home/"
 };
 
 // Sample data is deliberately separate from rendering so it can later come from an API.
@@ -76,36 +75,7 @@ let reviewIndex = 0;
 let toastTimer;
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
-function whatsappUrl(message) {
-  return `https://wa.me/${socialConfig.whatsappNumber}?text=${encodeURIComponent(message)}`;
-}
-function openWhatsApp(productName, price, quantity, order = false, imageUrl) {
-  const intro = order ? "Hello, I would like to order this product." : "Hello, I am interested in this product.";
-  const quantityLine = quantity ? `\nQuantity: ${quantity}` : "";
-  const imageLine = imageUrl ? `\nProduct Image: ${imageUrl}` : "";
-  const message = `${intro}\n\nProduct Name: ${productName}\nPrice: ${money(price)}${quantityLine}${imageLine}\n\nCould you please share availability and delivery details?`;
-  window.open(whatsappUrl(message), "_blank", "noopener,noreferrer");
-}
-function openCartWhatsApp(cartItems) {
-  if (!cartItems.length) {
-    showToast("Add a piece to your bag before proceeding.");
-    return;
-  }
-  const items = cartItems.map(item => {
-    const product = productById(item.id);
-    return {name:product.name, price:product.price, quantity:item.quantity};
-  });
-  const lines = items.map(item => `${item.quantity} x ${item.name} ${money(item.price * item.quantity)}`);
-  const total = items.reduce((sum,item) => sum + item.price * item.quantity,0);
-  const message = `Hello,\n\nI would like to order:\n\n${lines.join("\n")}\n\nTotal: ${money(total)}\n\nPlease confirm availability, delivery and payment details.`;
-  window.open(whatsappUrl(message), "_blank", "noopener,noreferrer");
-}
-function openCustomInquiry() {
-  const message = "Hello,\nI would like a custom clay decor piece.\nPlease share the customization options.";
-  window.open(whatsappUrl(message), "_blank", "noopener,noreferrer");
-}
 $$("[data-instagram]").forEach(link => { link.href = socialConfig.instagramUrl; });
-$$("[data-whatsapp]").forEach(link => { link.href = whatsappUrl("Hello, I would like to know more about your handmade clay decor."); });
 $(".instagram-handle").textContent = `@${new URL(socialConfig.instagramUrl).pathname.split("/").filter(Boolean)[0]}`;
 
 function showToast(message) {
@@ -124,7 +94,7 @@ function productCard(product) {
       ${product.badge ? `<span class="product-badge">${product.badge}</span>` : ""}
       <button class="heart-button ${saved ? "saved" : ""}" data-wishlist="${product.id}" aria-label="${saved ? "Remove " + product.name + " from wishlist" : "Add " + product.name + " to wishlist"}" aria-pressed="${saved}">${saved ? "♥" : "♡"}</button>
     </div>
-    <div class="product-meta"><span class="product-category">${product.category}</span><div class="product-title-row"><h3>${product.name}</h3><strong>${money(product.price)}</strong></div><div class="rating" aria-label="Rated ${product.rating} out of 5">★★★★★ <span>${product.rating.toFixed(1)}</span></div><div class="product-actions"><button data-quick-view="${product.id}">VIEW DETAILS ↗</button><button data-product-inquiry="${product.id}">WHATSAPP INQUIRY ↗</button></div></div>
+    <div class="product-meta"><span class="product-category">${product.category}</span><div class="product-title-row"><h3>${product.name}</h3><strong>${money(product.price)}</strong></div><div class="rating" aria-label="Rated ${product.rating} out of 5">★★★★★ <span>${product.rating.toFixed(1)}</span></div><div class="product-actions"><button data-quick-view="${product.id}">VIEW DETAILS ↗</button><a href="${socialConfig.instagramUrl}" target="_blank" rel="noopener noreferrer">ASK ON INSTAGRAM ↗</a></div></div>
   </article>`;
 }
 function renderProducts() {
@@ -184,7 +154,7 @@ function openQuickView(id) {
   if (!modalProduct) return;
   modalQuantity = 1;
   $("#modal-body").innerHTML = `<div class="modal-gallery"><img class="modal-main-image" src="${modalProduct.image}" alt="${modalProduct.name}"><div class="modal-thumbs"><button class="selected" data-image="${modalProduct.image}" aria-label="View first image"><img src="${modalProduct.image}" alt=""></button><button data-image="${modalProduct.alternate}" aria-label="View second image"><img src="${modalProduct.alternate}" alt=""></button></div></div>
-    <div class="modal-info"><span class="eyebrow">${modalProduct.category} / HANDMADE WITH LOVE</span><h2 id="modal-title">${modalProduct.name}</h2><div class="rating">★★★★★ <span>${modalProduct.rating.toFixed(1)} / 5</span></div><p class="modal-price">${money(modalProduct.price)}</p><p class="modal-description">${modalProduct.description}</p><div class="quantity-row"><span>Quantity</span><div class="quantity-control"><button data-quantity="-1" aria-label="Decrease quantity">−</button><span id="modal-quantity">1</span><button data-quantity="1" aria-label="Increase quantity">+</button></div></div><div class="modal-actions"><button class="button button-dark" data-modal-whatsapp="order">ORDER VIA WHATSAPP <span>↗</span></button><button class="button button-outline" data-modal-whatsapp="ask">ASK ON WHATSAPP <span>↗</span></button><button class="button button-outline" id="add-to-cart">ADD TO BAG <span>↗</span></button></div><p class="modal-note">Handmade with care. Each piece is beautifully unique.<br>Sample products and imagery; availability is confirmed in conversation.</p></div>`;
+    <div class="modal-info"><span class="eyebrow">${modalProduct.category} / HANDMADE WITH LOVE</span><h2 id="modal-title">${modalProduct.name}</h2><div class="rating">★★★★★ <span>${modalProduct.rating.toFixed(1)} / 5</span></div><p class="modal-price">${money(modalProduct.price)}</p><p class="modal-description">${modalProduct.description}</p><div class="quantity-row"><span>Quantity</span><div class="quantity-control"><button data-quantity="-1" aria-label="Decrease quantity">−</button><span id="modal-quantity">1</span><button data-quantity="1" aria-label="Increase quantity">+</button></div></div><div class="modal-actions"><a class="button button-dark" href="${socialConfig.instagramUrl}" target="_blank" rel="noopener noreferrer">ASK ABOUT THIS ON INSTAGRAM <span>↗</span></a><button class="button button-outline" id="add-to-cart">ADD TO BAG <span>↗</span></button></div><p class="modal-note">Handmade with care. Each piece is beautifully unique.<br>Sample products and imagery; availability is confirmed in conversation.</p></div>`;
   $("#quick-view").showModal();
 }
 function renderDrawer() {
@@ -199,7 +169,7 @@ function renderDrawer() {
   content.innerHTML = entries.map(item => {
     const product = productById(item.id);
     return `<article class="drawer-item"><img src="${product.image}" alt="" loading="lazy"><div><h3>${product.name}</h3><p>${money(product.price)}${isCart ? ` · Qty ${item.quantity}` : ""}</p></div><button data-remove="${product.id}">REMOVE ×</button></article>`;
-  }).join("") + (isCart ? `<div class="drawer-total"><span>Subtotal</span><span>${money(cart.reduce((sum,item) => sum + productById(item.id).price * item.quantity,0))}</span></div><button class="button button-dark" data-cart-whatsapp>PROCEED VIA WHATSAPP <span>↗</span></button><p class="drawer-disclaimer">We'll confirm availability and delivery with you personally. Your bag stays saved here until you remove its items.</p>` : `<p class="drawer-disclaimer">Your favourite pieces are saved in this browser.</p>`);
+  }).join("") + (isCart ? `<div class="drawer-total"><span>Subtotal</span><span>${money(cart.reduce((sum,item) => sum + productById(item.id).price * item.quantity,0))}</span></div><a class="button button-dark" href="${socialConfig.instagramUrl}" target="_blank" rel="noopener noreferrer">CONTACT US ON INSTAGRAM <span>↗</span></a><p class="drawer-disclaimer">Message us on Instagram to confirm availability and delivery. Your bag stays saved here until you remove its items.</p>` : `<p class="drawer-disclaimer">Your favourite pieces are saved in this browser.</p>`);
 }
 function openDrawer(mode) {
   drawerMode = mode;
@@ -217,14 +187,8 @@ renderProducts(); renderBestsellers(); updateCounts(); renderReview();
 document.addEventListener("click", event => {
   const wishlistButton = event.target.closest("[data-wishlist]");
   const quickButton = event.target.closest("[data-quick-view]");
-  const inquiryButton = event.target.closest("[data-product-inquiry]");
   if (wishlistButton) toggleWishlist(wishlistButton.dataset.wishlist);
   if (quickButton) openQuickView(quickButton.dataset.quickView);
-  if (inquiryButton) {
-    const product = productById(inquiryButton.dataset.productInquiry);
-    if (product) openWhatsApp(product.name,product.price,undefined,false,product.image);
-  }
-  if (event.target.closest("[data-custom-inquiry]")) openCustomInquiry();
 });
 ["category-filter","price-filter","sort-filter"].forEach(id => $(`#${id}`).addEventListener("change",renderProducts));
 $("#product-search").addEventListener("input",renderProducts);
@@ -245,8 +209,6 @@ $("#modal-body").addEventListener("click",event => {
   const quantityButton = event.target.closest("[data-quantity]");
   if (thumb) { $(".modal-main-image").src = thumb.dataset.image; $$(".modal-thumbs button").forEach(button => button.classList.toggle("selected",button === thumb)); }
   if (quantityButton) { modalQuantity = Math.max(1,Math.min(99,modalQuantity + Number(quantityButton.dataset.quantity))); $("#modal-quantity").textContent = modalQuantity; }
-  const whatsappButton = event.target.closest("[data-modal-whatsapp]");
-  if (whatsappButton) openWhatsApp(modalProduct.name,modalProduct.price,modalQuantity,whatsappButton.dataset.modalWhatsapp === "order",modalProduct.image);
   if (event.target.closest("#add-to-cart")) { addToCart(modalProduct.id,modalQuantity); $("#quick-view").close(); }
 });
 $("#drawer-content").addEventListener("click",event => {
@@ -257,7 +219,6 @@ $("#drawer-content").addEventListener("click",event => {
     else toggleWishlist(id);
   }
   if (event.target.closest(".drawer-shop")) $("#drawer").close();
-  if (event.target.closest("[data-cart-whatsapp]")) openCartWhatsApp(cart);
 });
 const slider = $("#bestseller-slider");
 $$("[data-slide]").forEach(button => button.addEventListener("click",() => {
