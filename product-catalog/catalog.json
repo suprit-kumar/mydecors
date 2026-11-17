@@ -1,9 +1,12 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-11-17T16:31:18.341Z",
+  "updatedAt": "2026-11-17T16:43:42.552Z",
   "products": [
     {
       "id": "338dbf79-1c0a-46ea-bf34-9208bb345510"
+    },
+    {
+      "id": "e1acc377-7c43-42f5-a252-f029783abfed"
     }
   ]
 }
