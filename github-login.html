@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f0e9">
+  <meta name="description" content="Connect a GitHub account and repository to the MAISON MORA workspace.">
+  <title>GitHub Workspace | MAISON MORA</title>
+  <link rel="stylesheet" href="css/github-auth.css">
+  <script src="js/github-auth.js" defer></script>
+  <script src="js/catalog-manager.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="wordmark" href="index.html" aria-label="MAISON MORA home">MAISON MORA<span>GITHUB WORKSPACE</span></a>
+    <a class="back-link" href="index.html">← Back to store</a>
+  </header>
+
+  <main class="auth-shell">
+    <section class="login-card" id="login-view" aria-labelledby="welcome-title">
+      <div class="github-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M12 .8a11.2 11.2 0 0 0-3.54 21.83c.56.1.76-.24.76-.54v-2.1c-3.1.68-3.76-1.32-3.76-1.32-.5-1.29-1.24-1.63-1.24-1.63-1.02-.7.08-.69.08-.69 1.12.08 1.71 1.15 1.71 1.15 1 1.7 2.62 1.21 3.26.93.1-.72.39-1.21.71-1.49-2.48-.28-5.09-1.24-5.09-5.53 0-1.22.44-2.21 1.15-2.99-.12-.28-.5-1.42.11-2.95 0 0 .94-.3 3.08 1.14a10.7 10.7 0 0 1 5.61 0c2.14-1.44 3.08-1.14 3.08-1.14.61 1.53.23 2.67.11 2.95.72.78 1.15 1.77 1.15 2.99 0 4.3-2.61 5.25-5.1 5.52.4.35.76 1.03.76 2.08v3.08c0 .3.2.65.77.54A11.2 11.2 0 0 0 12 .8Z"/></svg>
+      </div>
+      <p class="eyebrow">MAISON MORA · REPOSITORY ACCESS</p>
+      <h1 id="welcome-title">Connect your GitHub</h1>
+      <p class="intro">Use a Fine-grained Personal Access Token to connect your account and choose a repository.</p>
+
+      <div class="security-note" role="note">
+        <strong>Browser security note</strong>
+        <p>This static page sends your token only to GitHub’s API and keeps it in this tab’s JavaScript memory. It is not saved to localStorage or sent to our website server. A browser-based token can still be exposed by malicious scripts, extensions, or other users on a shared device. Use this only in a trusted browser and revoke the token when you no longer need it.</p>
+      </div>
+
+      <form id="token-form">
+        <label for="pat-input">Fine-grained personal access token</label>
+        <div class="token-field">
+          <input id="pat-input" name="token" type="password" placeholder="github_pat_…" autocomplete="off" autocapitalize="off" spellcheck="false" required>
+          <button id="toggle-token" type="button" aria-label="Show token" aria-pressed="false">Show</button>
+        </div>
+        <button class="primary-button" id="connect-button" type="submit">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .8a11.2 11.2 0 0 0-3.54 21.83c.56.1.76-.24.76-.54v-2.1c-3.1.68-3.76-1.32-3.76-1.32-.5-1.29-1.24-1.63-1.24-1.63-1.02-.7.08-.69.08-.69 1.12.08 1.71 1.15 1.71 1.15 1 1.7 2.62 1.21 3.26.93.1-.72.39-1.21.71-1.49-2.48-.28-5.09-1.24-5.09-5.53 0-1.22.44-2.21 1.15-2.99-.12-.28-.5-1.42.11-2.95 0 0 .94-.3 3.08 1.14a10.7 10.7 0 0 1 5.61 0c2.14-1.44 3.08-1.14 3.08-1.14.61 1.53.23 2.67.11 2.95.72.78 1.15 1.77 1.15 2.99 0 4.3-2.61 5.25-5.1 5.52.4.35.76 1.03.76 2.08v3.08c0 .3.2.65.77.54A11.2 11.2 0 0 0 12 .8Z"/></svg>
+          <span>Connect GitHub</span>
+        </button>
+      </form>
+
+      <div class="permission-guide">
+        <div class="guide-heading"><span>01</span><strong>Recommended token permissions</strong></div>
+        <ul>
+          <li><strong>Repository access:</strong> Only select the repository you intend to use.</li>
+          <li><strong>Contents:</strong> Read and write.</li>
+          <li><strong>Metadata:</strong> Read-only (required by GitHub).</li>
+        </ul>
+        <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener noreferrer">Create a Fine-grained PAT in GitHub ↗</a>
+      </div>
+
+      <p class="status-message" id="login-status" role="status" aria-live="polite" hidden></p>
+      <p class="footnote">No OAuth, backend authentication service, or token persistence is used. Reloading this page ends the connection.</p>
+    </section>
+
+    <section class="dashboard" id="dashboard-view" aria-labelledby="dashboard-title" hidden>
+      <div class="dashboard-heading">
+        <div>
+          <p class="eyebrow">MAISON MORA · GITHUB WORKSPACE</p>
+          <h1 id="dashboard-title">Product management</h1>
+        </div>
+        <div class="dashboard-account">
+          <img id="user-avatar" class="avatar" alt="" width="42" height="42" hidden>
+          <div class="account-copy">
+            <strong id="user-login"></strong>
+            <span id="connection-status" class="connection-status">Connected · this tab only</span>
+          </div>
+          <button class="secondary-button" id="logout-button" type="button">Log out</button>
+        </div>
+      </div>
+
+      <div class="workspace-layout">
+        <nav class="workspace-nav" aria-label="Product management">
+          <button class="workspace-nav-item active" type="button" data-workspace-page="overview">Dashboard</button>
+          <button class="workspace-nav-item" type="button" data-workspace-page="catalog">Product Catalog</button>
+          <button class="workspace-nav-item" type="button" data-workspace-page="add-product">Add Product</button>
+          <button class="workspace-nav-item" type="button" data-workspace-page="categories">Categories</button>
+          <button class="workspace-nav-item" type="button" data-workspace-page="repository">Repository Settings</button>
+        </nav>
+
+        <div class="workspace-content">
+          <section class="workspace-page" id="page-overview" data-page-panel="overview">
+            <div class="page-heading"><div><p class="eyebrow">YOUR STORE AT A GLANCE</p><h2>Dashboard</h2></div><button class="primary-button" type="button" data-go-page="add-product">Add product <span aria-hidden="true">＋</span></button></div>
+            <div class="stat-grid">
+              <article class="stat-card"><span>Total products</span><strong id="stat-products">—</strong></article>
+              <article class="stat-card"><span>Categories</span><strong id="stat-categories">—</strong></article>
+              <article class="stat-card"><span>Product images</span><strong id="stat-images">—</strong></article>
+            </div>
+            <section class="panel-card"><div class="panel-heading"><h3>Recently added</h3><button class="text-button" type="button" data-go-page="catalog">View catalog →</button></div><div class="recent-products" id="recent-products"><p class="empty-message">Connect a repository to load your products.</p></div></section>
+            <section class="panel-card"><div class="panel-heading"><h3>Recent activity</h3></div><div id="recent-activity"><p class="empty-message">Activity from this session will appear here.</p></div></section>
+            <p class="status-message" id="dashboard-status" role="status" aria-live="polite" hidden></p>
+          </section>
+
+          <section class="workspace-page" id="page-catalog" data-page-panel="catalog" hidden>
+            <div class="page-heading"><div><p class="eyebrow">MANAGE YOUR COLLECTION</p><h2>Product Catalog</h2></div><button class="primary-button" type="button" data-go-page="add-product">Add product <span aria-hidden="true">＋</span></button></div>
+            <div class="catalog-toolbar">
+              <label class="search-control" for="catalog-search">Search products<input id="catalog-search" type="search" placeholder="Name, SKU or description"></label>
+              <label for="catalog-category-filter">Category<select id="catalog-category-filter"><option value="">All categories</option></select></label>
+              <label for="catalog-price-filter">Price range<select id="catalog-price-filter"><option value="">All prices</option><option value="0-1000">Under ₹1,000</option><option value="1000-5000">₹1,000–₹5,000</option><option value="5000+">Above ₹5,000</option></select></label>
+              <label for="catalog-sort">Sort by<select id="catalog-sort"><option value="newest">Newest</option><option value="oldest">Oldest</option><option value="price-asc">Price: Low to High</option><option value="price-desc">Price: High to Low</option><option value="name">Name: A to Z</option></select></label>
+            </div>
+            <p class="catalog-count" id="catalog-count" aria-live="polite"></p>
+            <div class="product-grid" id="product-grid"><p class="empty-message">Configure a repository to load your products.</p></div>
+            <div class="recovery-actions" id="catalog-recovery"></div>
+            <p class="status-message" id="catalog-status" role="status" aria-live="polite" hidden></p>
+          </section>
+
+          <section class="workspace-page" id="page-add-product" data-page-panel="add-product" hidden>
+            <div class="page-heading"><div><p class="eyebrow" id="product-form-eyebrow">ADD SOMETHING LOVELY</p><h2 id="product-form-title">Add Product</h2></div><button class="text-button" type="button" data-go-page="catalog">← Back to catalog</button></div>
+            <form class="product-form" id="product-form" novalidate>
+              <section class="form-section">
+                <div class="form-section-heading"><span>01</span><div><h3>Product Images</h3><p>JPG, PNG or WEBP · up to 5 MB per image</p></div></div>
+                <div class="drop-zone" id="image-drop-zone">
+                  <span class="upload-icon" aria-hidden="true">↑</span><strong>Drop product photos here</strong><span>or browse from your computer</span>
+                  <input id="product-images" type="file" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp" multiple hidden>
+                  <button class="secondary-button" id="choose-images" type="button">Choose images</button>
+                </div>
+                <p class="field-error" id="image-error" role="alert"></p>
+                <div class="image-preview-grid" id="image-preview-grid"></div>
+              </section>
+
+              <section class="form-section">
+                <div class="form-section-heading"><span>02</span><div><h3>Basic Information</h3><p>Give this piece a name and a home in your catalog.</p></div></div>
+                <div class="form-grid">
+                  <label class="span-two" for="product-name">Product name <span aria-hidden="true">*</span><input id="product-name" name="name" type="text" minlength="3" maxlength="120" placeholder="e.g. Modern Wooden Dining Table" required></label>
+                  <div class="field-with-action"><label for="product-category">Category <span aria-hidden="true">*</span><select id="product-category" name="categoryId" required><option value="">Choose a category</option></select></label><button class="inline-link" type="button" data-go-page="categories">Manage categories</button></div>
+                  <label for="product-sku">SKU <span aria-hidden="true">*</span><input id="product-sku" name="sku" type="text" minlength="2" maxlength="40" required></label>
+                </div>
+              </section>
+
+              <section class="form-section">
+                <div class="form-section-heading"><span>03</span><div><h3>Pricing</h3><p>Set a clear price in Indian rupees.</p></div></div>
+                <label class="price-field" for="product-price">Price (INR) <span aria-hidden="true">*</span><span class="currency-input"><span>₹</span><input id="product-price" name="price" type="number" min="0" step="0.01" placeholder="0.00" required></span></label>
+              </section>
+
+              <section class="form-section">
+                <div class="form-section-heading"><span>04</span><div><h3>Description</h3><p>Tell customers what makes this product special.</p></div></div>
+                <label for="product-description">Description <span aria-hidden="true">*</span><textarea id="product-description" name="description" minlength="10" maxlength="2000" rows="5" placeholder="Add a thoughtful product description…" required></textarea><span class="character-count" id="description-count">0 / 2,000</span></label>
+              </section>
+
+              <section class="form-section">
+                <div class="form-section-heading"><span>05</span><div><h3>Dimensions</h3><p>Optional; enter all three measurements together.</p></div></div>
+                <div class="dimension-grid">
+                  <label for="dimension-length">Length<input id="dimension-length" name="length" type="number" min="0" step="any" placeholder="—"></label>
+                  <label for="dimension-width">Width<input id="dimension-width" name="width" type="number" min="0" step="any" placeholder="—"></label>
+                  <label for="dimension-height">Height<input id="dimension-height" name="height" type="number" min="0" step="any" placeholder="—"></label>
+                  <label for="dimension-unit">Unit<select id="dimension-unit" name="unit"><option value="cm">cm</option><option value="mm">mm</option><option value="m">m</option><option value="inch">inch</option><option value="ft">ft</option></select></label>
+                </div>
+                <p class="field-error" id="dimension-error" role="alert"></p>
+              </section>
+
+              <div class="form-actions"><button class="primary-button" id="save-product" type="submit">Save product</button><button class="secondary-button" id="resume-upload" type="button" hidden>Resume interrupted upload</button><button class="text-button" id="cancel-edit" type="button" hidden>Cancel editing</button></div>
+              <p class="status-message" id="form-status" role="status" aria-live="polite" hidden></p>
+              <p class="upload-progress" id="upload-progress" aria-live="polite" hidden></p>
+            </form>
+          </section>
+
+          <section class="workspace-page" id="page-categories" data-page-panel="categories" hidden>
+            <div class="page-heading"><div><p class="eyebrow">ORGANIZE YOUR COLLECTION</p><h2>Categories</h2></div></div>
+            <section class="panel-card category-editor">
+              <h3 id="category-form-title">Add a category</h3>
+              <form id="category-form" class="inline-form">
+                <label for="category-name">Category name<input id="category-name" type="text" maxlength="80" placeholder="e.g. Home Decor" required></label>
+                <button class="primary-button" type="submit" id="save-category">Add category</button>
+                <button class="text-button" type="button" id="cancel-category-edit" hidden>Cancel</button>
+              </form>
+              <p class="status-message" id="category-status" role="status" aria-live="polite" hidden></p>
+              <div class="recovery-actions" id="category-recovery"></div>
+            </section>
+            <div class="category-list" id="category-list"><p class="empty-message">Configure a repository to manage categories.</p></div>
+          </section>
+
+          <section class="workspace-page" id="page-repository" data-page-panel="repository" hidden>
+            <div class="page-heading"><div><p class="eyebrow">GITHUB CONTENTS STORAGE</p><h2>Repository Settings</h2></div></div>
+            <section class="repository-card">
+              <p class="helper-text">Choose the repository and branch for your catalog. Product data and images are written directly to this repository.</p>
+              <label for="repository-select">Repository</label>
+              <div class="repository-controls"><select id="repository-select" disabled><option value="">Loading repositories…</option></select></div>
+              <label for="branch-select">Branch</label>
+              <select id="branch-select" disabled><option value="">Choose a repository first</option></select>
+              <label for="root-folder">Catalog destination folder</label>
+              <input id="root-folder" type="text" value="product-catalog" maxlength="180" placeholder="product-catalog">
+              <p class="helper-text">Use letters, numbers, hyphens, underscores and slashes. Folders are created automatically when the first files are uploaded.</p>
+              <label class="permission-confirm"><input id="confirm-write-permission" type="checkbox"> I confirmed this Fine-grained PAT has <strong>Contents: Read and write</strong> for this repository.</label>
+              <button class="primary-button verify-button" id="verify-button" type="button" disabled>Verify and save repository</button>
+              <p class="status-message" id="settings-status" role="status" aria-live="polite" hidden></p>
+            </section>
+            <section class="permissions-card" id="permissions-card" aria-live="polite" hidden>
+              <div class="permissions-heading"><div><span class="field-label">CONNECTED REPOSITORY</span><h3 id="connected-repository"></h3></div><span class="verified-badge" id="repo-status">Verified</span></div>
+              <dl class="permission-results">
+                <div><dt>Contents read</dt><dd id="contents-read-status"></dd></div>
+                <div><dt>Repository push access</dt><dd id="push-status"></dd></div>
+                <div><dt>Fine-grained token write scope</dt><dd id="token-write-status"></dd></div>
+              </dl>
+              <p class="permission-disclaimer">GitHub has no non-mutating endpoint to inspect a Fine-grained PAT’s Contents: write grant. Repository push access is checked, but you must confirm Contents: Read and write in GitHub token settings. No test commit is made.</p>
+            </section>
+            <aside class="security-note dashboard-note" role="note"><strong>Token security</strong><p>Your token remains only in this page’s memory and is sent only to GitHub’s API. Logging out, reloading, or closing this tab clears it. GitHub does not expose a safe read-only test for the token’s write permission.</p></aside>
+          </section>
+        </div>
+      </div>
+    </section>
+  </main>
+  <dialog class="product-dialog" id="product-dialog" aria-labelledby="detail-product-name"><button class="modal-close" id="close-product-dialog" type="button" aria-label="Close product details">×</button><div id="product-detail-content"></div></dialog>
+  <footer class="page-footer"><a href="https://maisonmoradecor.in" target="_blank" rel="noopener noreferrer">maisonmoradecor.in</a><span>© 2026 MAISON MORA</span></footer>
+</body>
+</html>
