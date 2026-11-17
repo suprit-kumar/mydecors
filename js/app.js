@@ -6,43 +6,18 @@ const socialConfig = {
   instagramDmUrl: "https://ig.me/m/maisonmora.home"
 };
 
-// Sample data is deliberately separate from rendering so it can later come from an API.
-const images = {
-  vase: "https://images.unsplash.com/photo-1578500494198-246f612d3b3d?auto=format&fit=crop&w=800&q=80",
-  pottery: "https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?auto=format&fit=crop&w=800&q=80",
-  pot: "https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=800&q=80",
-  candle: "https://images.unsplash.com/photo-1603006905003-be475563bc59?auto=format&fit=crop&w=800&q=80",
-  interior: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80",
-  ceramics: "https://images.unsplash.com/photo-1490312278390-ab64016e0aa9?auto=format&fit=crop&w=800&q=80",
-  table: "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=800&q=80",
-  room: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=800&q=80"
+// Products are loaded from the public GitHub catalog written by the GitHub Workspace page.
+const catalogSource = {
+  owner: "suprit-kumar",
+  repo: "mydecors",
+  branch: "main",
+  root: "product-catalog"
 };
-const products = [
-  {id:24,name:"The Sora Vase",price:1890,category:"Vases",rating:4.9,description:"A softly sculpted statement vase, inspired by the quiet curves of nature.",image:images.vase,alternate:images.ceramics,badge:"BESTSELLER",popular:99},
-  {id:23,name:"The Earth Pot",price:1290,category:"Pots",rating:4.8,description:"An earthy little home for your favourite greenery, shaped with character.",image:images.pot,alternate:images.pottery,badge:"MOST LOVED",popular:96},
-  {id:22,name:"The Glow Holder",price:890,category:"Candle Holders",rating:4.9,description:"A warm, handmade accent for slow evenings and candlelit corners.",image:images.candle,alternate:images.ceramics,badge:"BESTSELLER",popular:95},
-  {id:21,name:"The Form Study",price:2490,category:"Sculptures",rating:5.0,description:"An expressive little sculpture that brings a touch of art to the everyday.",image:images.pottery,alternate:images.vase,badge:"LIMITED",popular:92},
-  {id:20,name:"Mira Bud Vase",price:990,category:"Vases",rating:4.8,description:"A petite vessel for a single stem, with a quietly beautiful silhouette.",image:images.ceramics,alternate:images.vase,popular:91},
-  {id:19,name:"Terra Planter",price:1590,category:"Pots",rating:4.7,description:"A tactile planter made to bring a little life indoors.",image:images.pot,alternate:images.pottery,popular:87},
-  {id:18,name:"Moonlit Wall Disc",price:1790,category:"Wall Decor",rating:4.8,description:"An organic wall accent that adds depth and warmth to your favourite corner.",image:images.interior,alternate:images.room,badge:"NEW",popular:85},
-  {id:17,name:"Ritual Candle Cup",price:790,category:"Candle Holders",rating:4.7,description:"A simple candle holder made for moments of pause.",image:images.candle,alternate:images.pottery,popular:82},
-  {id:16,name:"The Gathering Bowl",price:1490,category:"Table Decor",rating:4.9,description:"A sculptural table accent for the objects and moments you love.",image:images.pottery,alternate:images.ceramics,popular:90},
-  {id:15,name:"Stillness Sculpture",price:2790,category:"Sculptures",rating:4.9,description:"An abstract form with gentle lines and a beautifully tactile finish.",image:images.ceramics,alternate:images.pottery,popular:88},
-  {id:14,name:"The Arch Vase",price:2190,category:"Vases",rating:4.8,description:"A graceful silhouette to make flowers and spaces feel extra special.",image:images.vase,alternate:images.ceramics,popular:86},
-  {id:13,name:"Little Earth Pot",price:690,category:"Pots",rating:4.7,description:"A little pot with a lot of personality.",image:images.pot,alternate:images.pottery,popular:80},
-  {id:12,name:"Sol Wall Hanging",price:1990,category:"Wall Decor",rating:4.8,description:"A sun-inspired handmade detail for a considered wall.",image:images.table,alternate:images.interior,popular:78},
-  {id:11,name:"The Dusk Duo",price:1690,category:"Candle Holders",rating:4.9,description:"A pair of candle holders for a softer kind of evening.",image:images.candle,alternate:images.ceramics,popular:84},
-  {id:10,name:"Nest Tray",price:1190,category:"Table Decor",rating:4.8,description:"A small catch-all for the things you reach for every day.",image:images.pottery,alternate:images.table,popular:77},
-  {id:9,name:"The Muse Object",price:2290,category:"Sculptures",rating:4.8,description:"A conversation-starting shape, made slowly and finished by hand.",image:images.ceramics,alternate:images.vase,popular:79},
-  {id:8,name:"Petal Vase",price:1390,category:"Vases",rating:4.7,description:"A delicate form inspired by petals and the beauty of new beginnings.",image:images.vase,alternate:images.pottery,popular:75},
-  {id:7,name:"Pebble Incense Rest",price:590,category:"Accessories",rating:4.8,description:"A little ritual object for a calmer corner of your home.",image:images.pottery,alternate:images.ceramics,popular:83},
-  {id:6,name:"The Everyday Dish",price:790,category:"Table Decor",rating:4.7,description:"A hand-shaped dish for treasured trinkets and everyday rituals.",image:images.ceramics,alternate:images.pottery,popular:73},
-  {id:5,name:"Organic Wall Accent",price:2490,category:"Wall Decor",rating:4.9,description:"A textural, earth-inspired piece for walls with a story to tell.",image:images.interior,alternate:images.table,popular:74},
-  {id:4,name:"The Keepsake Box",price:1590,category:"Accessories",rating:4.8,description:"A thoughtful home for the little things that mean the most.",image:images.pottery,alternate:images.ceramics,popular:72},
-  {id:3,name:"Your Story Vase",price:2990,category:"Custom Designs",rating:5.0,description:"A sample custom vase concept. Get in touch to discuss your own design.",image:images.vase,alternate:images.ceramics,badge:"CUSTOM",popular:76},
-  {id:2,name:"The Personal Piece",price:3490,category:"Custom Designs",rating:4.9,description:"A sample bespoke décor piece, imagined around your space and story.",image:images.pottery,alternate:images.vase,badge:"CUSTOM",popular:70},
-  {id:1,name:"Soft Light Holder",price:1090,category:"Candle Holders",rating:4.7,description:"A gentle glow and an organic form for your most peaceful evenings.",image:images.candle,alternate:images.pottery,popular:71}
-];
+const rawBase = `https://raw.githubusercontent.com/${catalogSource.owner}/${catalogSource.repo}/${catalogSource.branch}`;
+const encodePath = path => path.split("/").map(encodeURIComponent).join("/");
+const rawUrl = path => `${rawBase}/${encodePath(path)}`;
+let products = [];
+let catalogStatus = "loading";
 const reviews = [
   {quote:"You can feel the care in every little detail. My vase has become my favourite thing in the room.",name:"PRIYA S.",place:"Mumbai",image:"https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80"},
   {quote:"The pieces have such a lovely, soulful quality. They make our home feel a little more like us.",name:"ANANYA M.",place:"Bengaluru",image:"https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=100&q=80"},
@@ -52,7 +27,53 @@ const reviews = [
 const $ = (selector, root = document) => root.querySelector(selector);
 const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
 const money = value => new Intl.NumberFormat("en-IN", {style:"currency",currency:"INR",maximumFractionDigits:0}).format(value);
-const productById = id => products.find(product => product.id === Number(id));
+const productById = id => products.find(product => product.id === String(id));
+const esc = value => String(value ?? "").replace(/[&<>"']/g, char => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[char]));
+const fetchJson = async path => {
+  const response = await fetch(rawUrl(path), {cache: "no-cache"});
+  if (!response.ok) {
+    const error = new Error(`Could not load ${path} (${response.status}).`);
+    error.status = response.status;
+    throw error;
+  }
+  return response.json();
+};
+function toStoreProduct(record) {
+  if (!record || typeof record.id !== "string" || typeof record.name !== "string" || !record.price || !Number.isFinite(record.price.amount)) return null;
+  const images = (Array.isArray(record.images) ? record.images : [])
+    .filter(image => image && typeof image.path === "string")
+    .sort((a, b) => (b.isPrimary === true) - (a.isPrimary === true) || (a.sortOrder || 0) - (b.sortOrder || 0))
+    .map(image => rawUrl(image.path));
+  if (!images.length) return null;
+  return {
+    id: record.id,
+    name: record.name,
+    price: record.price.amount,
+    category: record.categoryName || "Uncategorised",
+    description: record.description || "",
+    dimensions: record.dimensions || "",
+    image: images[0],
+    alternate: images[1] || images[0],
+    gallery: images,
+    createdAt: Date.parse(record.createdAt) || 0
+  };
+}
+async function loadCatalog() {
+  try {
+    const index = await fetchJson(`${catalogSource.root}/catalog.json`);
+    const ids = Array.isArray(index.products) ? index.products.map(entry => entry && entry.id).filter(id => typeof id === "string") : [];
+    const records = await Promise.all(ids.map(id => fetchJson(`${catalogSource.root}/products/${encodeURIComponent(id)}/product.json`).catch(error => {
+      console.warn("Skipping product:", error.message);
+      return null;
+    })));
+    products = records.map(toStoreProduct).filter(Boolean);
+    catalogStatus = "ready";
+  } catch (error) {
+    console.warn("Could not load product catalog:", error.message);
+    products = [];
+    catalogStatus = error.status === 404 ? "ready" : "error";
+  }
+}
 const storage = {
   get(key, fallback) {
     try { const value = localStorage.getItem(key); return value ? JSON.parse(value) : fallback; }
@@ -67,8 +88,12 @@ let wishlist = storage.get("aarna-wishlist", []);
 let cart = storage.get("aarna-cart", []);
 if (!Array.isArray(wishlist)) wishlist = [];
 if (!Array.isArray(cart)) cart = [];
-wishlist = wishlist.filter(id => productById(id));
-cart = cart.filter(item => item && productById(item.id) && Number.isInteger(item.quantity) && item.quantity > 0);
+function pruneSavedItems() {
+  wishlist = wishlist.filter(id => productById(id));
+  cart = cart.filter(item => item && productById(item.id) && Number.isInteger(item.quantity) && item.quantity > 0);
+  storage.set("aarna-wishlist", wishlist);
+  storage.set("aarna-cart", cart);
+}
 let modalProduct = null;
 let modalQuantity = 1;
 let drawerMode = "cart";
@@ -115,12 +140,11 @@ function productCard(product) {
   const saved = wishlist.includes(product.id);
   return `<article class="product-card">
     <div class="product-image-wrap">
-      <img src="${product.image}" alt="${product.name}" loading="lazy">
-      <img class="product-image-alt" src="${product.alternate}" alt="" loading="lazy">
-      ${product.badge ? `<span class="product-badge">${product.badge}</span>` : ""}
-      <button class="heart-button ${saved ? "saved" : ""}" data-wishlist="${product.id}" aria-label="${saved ? "Remove " + product.name + " from wishlist" : "Add " + product.name + " to wishlist"}" aria-pressed="${saved}">${saved ? "♥" : "♡"}</button>
+      <img src="${esc(product.image)}" alt="${esc(product.name)}" loading="lazy">
+      <img class="product-image-alt" src="${esc(product.alternate)}" alt="" loading="lazy">
+      <button class="heart-button ${saved ? "saved" : ""}" data-wishlist="${esc(product.id)}" aria-label="${saved ? "Remove " + esc(product.name) + " from wishlist" : "Add " + esc(product.name) + " to wishlist"}" aria-pressed="${saved}">${saved ? "♥" : "♡"}</button>
     </div>
-    <div class="product-meta"><span class="product-category">${product.category}</span><div class="product-title-row"><h3>${product.name}</h3><strong>${money(product.price)}</strong></div><div class="rating" aria-label="Rated ${product.rating} out of 5">★★★★★ <span>${product.rating.toFixed(1)}</span></div><div class="product-actions"><button data-quick-view="${product.id}">VIEW DETAILS ↗</button><a href="${socialConfig.instagramDmUrl}" data-instagram-product="${product.id}" target="_blank" rel="noopener noreferrer">ASK ON INSTAGRAM ↗</a></div></div>
+    <div class="product-meta"><span class="product-category">${esc(product.category)}</span><div class="product-title-row"><h3>${esc(product.name)}</h3><strong>${money(product.price)}</strong></div><div class="product-actions"><button data-quick-view="${esc(product.id)}">VIEW DETAILS ↗</button><a href="${socialConfig.instagramDmUrl}" data-instagram-product="${esc(product.id)}" target="_blank" rel="noopener noreferrer">ASK ON INSTAGRAM ↗</a></div></div>
   </article>`;
 }
 function renderProducts() {
@@ -132,13 +156,13 @@ function renderProducts() {
     const matchesPrice = price === "all" || (price === "1000" && product.price < 1000) || (price === "2000" && product.price >= 1000 && product.price <= 2000) || (price === "above" && product.price > 2000);
     return (category === "All" || product.category === category) && matchesPrice && `${product.name} ${product.category} ${product.description}`.toLowerCase().includes(query);
   });
-  filtered.sort((a,b) => sort === "low" ? a.price - b.price : sort === "high" ? b.price - a.price : sort === "popular" ? b.popular - a.popular : b.id - a.id);
+  filtered.sort((a,b) => sort === "low" ? a.price - b.price : sort === "high" ? b.price - a.price : b.createdAt - a.createdAt);
   $("#product-grid").innerHTML = filtered.map(productCard).join("");
   $("#results-count").textContent = `${filtered.length} ${filtered.length === 1 ? "OBJECT" : "OBJECTS"}`;
   $("#empty-state").hidden = filtered.length !== 0;
 }
 function renderBestsellers() {
-  $("#bestseller-slider").innerHTML = [...products].sort((a,b) => b.popular - a.popular).slice(0,8).map(productCard).join("");
+  $("#bestseller-slider").innerHTML = [...products].sort((a,b) => b.createdAt - a.createdAt).slice(0,8).map(productCard).join("");
 }
 function updateCounts() {
   const total = cart.reduce((sum,item) => sum + item.quantity,0);
@@ -179,14 +203,14 @@ function openQuickView(id) {
   modalProduct = productById(id);
   if (!modalProduct) return;
   modalQuantity = 1;
-  $("#modal-body").innerHTML = `<div class="modal-gallery"><img class="modal-main-image" src="${modalProduct.image}" alt="${modalProduct.name}"><div class="modal-thumbs"><button class="selected" data-image="${modalProduct.image}" aria-label="View first image"><img src="${modalProduct.image}" alt=""></button><button data-image="${modalProduct.alternate}" aria-label="View second image"><img src="${modalProduct.alternate}" alt=""></button></div></div>
-    <div class="modal-info"><span class="eyebrow">${modalProduct.category} / HANDMADE WITH LOVE</span><h2 id="modal-title">${modalProduct.name}</h2><div class="rating">★★★★★ <span>${modalProduct.rating.toFixed(1)} / 5</span></div><p class="modal-price">${money(modalProduct.price)}</p><p class="modal-description">${modalProduct.description}</p><div class="quantity-row"><span>Quantity</span><div class="quantity-control"><button data-quantity="-1" aria-label="Decrease quantity">−</button><span id="modal-quantity">1</span><button data-quantity="1" aria-label="Increase quantity">+</button></div></div><div class="modal-actions"><a class="button button-dark" href="${socialConfig.instagramDmUrl}" data-instagram-product="${modalProduct.id}" data-instagram-modal-product target="_blank" rel="noopener noreferrer">ASK ABOUT THIS ON INSTAGRAM <span>↗</span></a><button class="button button-outline" id="add-to-cart">ADD TO BAG <span>↗</span></button></div><p class="modal-note">Instagram opens a direct message. Paste the copied item details and image link; attach the image separately if needed.<br>Sample products and imagery; availability is confirmed in conversation.</p></div>`;
+  $("#modal-body").innerHTML = `<div class="modal-gallery"><img class="modal-main-image" src="${esc(modalProduct.image)}" alt="${esc(modalProduct.name)}">${modalProduct.gallery.length > 1 ? `<div class="modal-thumbs">${modalProduct.gallery.map((src, index) => `<button class="${index === 0 ? "selected" : ""}" data-image="${esc(src)}" aria-label="View image ${index + 1}"><img src="${esc(src)}" alt=""></button>`).join("")}</div>` : ""}</div>
+    <div class="modal-info"><span class="eyebrow">${esc(modalProduct.category)} / HANDMADE WITH LOVE</span><h2 id="modal-title">${esc(modalProduct.name)}</h2><p class="modal-price">${money(modalProduct.price)}</p><p class="modal-description">${esc(modalProduct.description)}</p>${modalProduct.dimensions ? `<p class="modal-description">Dimensions: ${esc(modalProduct.dimensions)}</p>` : ""}<div class="quantity-row"><span>Quantity</span><div class="quantity-control"><button data-quantity="-1" aria-label="Decrease quantity">−</button><span id="modal-quantity">1</span><button data-quantity="1" aria-label="Increase quantity">+</button></div></div><div class="modal-actions"><a class="button button-dark" href="${socialConfig.instagramDmUrl}" data-instagram-product="${esc(modalProduct.id)}" data-instagram-modal-product target="_blank" rel="noopener noreferrer">ASK ABOUT THIS ON INSTAGRAM <span>↗</span></a><button class="button button-outline" id="add-to-cart">ADD TO BAG <span>↗</span></button></div><p class="modal-note">Instagram opens a direct message. Paste the copied item details and image link; attach the image separately if needed.<br>Availability is confirmed in conversation.</p></div>`;
   $("#quick-view").showModal();
 }
 function renderDrawer() {
   const isCart = drawerMode === "cart";
   $("#drawer-title").textContent = isCart ? "Your bag." : "Your wishlist.";
-  const entries = isCart ? cart : wishlist.map(id => ({id,quantity:1}));
+  const entries = (isCart ? cart : wishlist.map(id => ({id,quantity:1}))).filter(item => productById(item.id));
   const content = $("#drawer-content");
   if (!entries.length) {
     content.innerHTML = `<p class="drawer-empty">Your ${isCart ? "bag" : "wishlist"} is waiting for something lovely.</p><a class="under-link drawer-shop" href="#collection">EXPLORE THE COLLECTION ↗</a>`;
@@ -194,7 +218,7 @@ function renderDrawer() {
   }
   content.innerHTML = entries.map(item => {
     const product = productById(item.id);
-    return `<article class="drawer-item"><img src="${product.image}" alt="" loading="lazy"><div><h3>${product.name}</h3><p>${money(product.price)}${isCart ? ` · Qty ${item.quantity}` : ""}</p></div><button data-remove="${product.id}">REMOVE ×</button></article>`;
+    return `<article class="drawer-item"><img src="${esc(product.image)}" alt="" loading="lazy"><div><h3>${esc(product.name)}</h3><p>${money(product.price)}${isCart ? ` · Qty ${item.quantity}` : ""}</p></div><button data-remove="${esc(product.id)}">REMOVE ×</button></article>`;
   }).join("") + (isCart ? `<div class="drawer-total"><span>Subtotal</span><span>${money(cart.reduce((sum,item) => sum + productById(item.id).price * item.quantity,0))}</span></div><a class="button button-dark" href="${socialConfig.instagramDmUrl}" data-instagram-cart target="_blank" rel="noopener noreferrer">CONTACT US ON INSTAGRAM <span>↗</span></a><p class="drawer-disclaimer">Instagram opens a direct message. Paste the copied order details and image links; attach images separately if needed.</p>` : `<p class="drawer-disclaimer">Your favourite pieces are saved in this browser.</p>`);
 }
 function openDrawer(mode) {
@@ -208,7 +232,25 @@ function renderReview() {
   $("#review-position").textContent = `${String(reviewIndex + 1).padStart(2,"0")} / ${String(reviews.length).padStart(2,"0")}`;
 }
 
-renderProducts(); renderBestsellers(); updateCounts(); renderReview();
+function populateCategories() {
+  const select = $("#category-filter");
+  const current = select.value;
+  const names = [...new Set(products.map(product => product.category))].sort((a, b) => a.localeCompare(b));
+  select.innerHTML = `<option value="All">All objects</option>${names.map(name => `<option value="${esc(name)}">${esc(name)}</option>`).join("")}`;
+  select.value = names.includes(current) ? current : "All";
+}
+function renderEmptyMessage() {
+  const message = catalogStatus === "loading" ? "Loading our latest pieces…"
+    : catalogStatus === "error" ? "We couldn't load the collection right now. Please try again shortly."
+    : products.length ? "No pieces found. Try a different search or filter." : "New pieces are on their way. Please check back soon.";
+  $("#empty-state").textContent = message;
+}
+function renderAll() {
+  populateCategories(); renderProducts(); renderBestsellers(); updateCounts(); renderEmptyMessage();
+}
+
+renderReview(); renderAll();
+loadCatalog().then(() => { pruneSavedItems(); renderAll(); });
 
 document.addEventListener("click", event => {
   const wishlistButton = event.target.closest("[data-wishlist]");
@@ -247,7 +289,7 @@ $("#modal-body").addEventListener("click",event => {
 $("#drawer-content").addEventListener("click",event => {
   const remove = event.target.closest("[data-remove]");
   if (remove) {
-    const id = Number(remove.dataset.remove);
+    const id = remove.dataset.remove;
     if (drawerMode === "cart") { cart = cart.filter(item => item.id !== id); storage.set("aarna-cart",cart); updateCounts(); renderDrawer(); showToast("Removed from your bag."); }
     else toggleWishlist(id);
   }
