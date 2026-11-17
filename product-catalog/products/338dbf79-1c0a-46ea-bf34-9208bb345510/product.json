@@ -1,0 +1,52 @@
+{
+  "id": "338dbf79-1c0a-46ea-bf34-9208bb345510",
+  "sku": "One",
+  "name": "Pink Vase",
+  "categoryId": "vases",
+  "categoryName": "Vases",
+  "price": {
+    "amount": 399,
+    "currency": "INR"
+  },
+  "description": "A little touch of pink, a little touch of charm. 🎀\n\nIntroducing our Blush Beaded Tray — handcrafted with love, made to add a sweet touch to your everyday little moments.\n\nPerfect for holding your favourite jewellery, rings and little treasures. ✨\n\nA little object, made to last beautifully.",
+  "dimensions": {
+    "length": 5,
+    "width": 5,
+    "height": 2,
+    "unit": "inch"
+  },
+  "images": [
+    {
+      "id": "f0b51afa-84c2-4cfb-bf4f-eb6f198ea2a6",
+      "filename": "image-f0b51afa-84c2-4cfb-bf4f-eb6f198ea2a6.jpg",
+      "path": "product-catalog/products/338dbf79-1c0a-46ea-bf34-9208bb345510/images/image-f0b51afa-84c2-4cfb-bf4f-eb6f198ea2a6.jpg",
+      "isPrimary": false,
+      "sortOrder": 1,
+      "width": 2784,
+      "height": 3408,
+      "sizeBytes": 646110
+    },
+    {
+      "id": "88f73a27-8910-47bf-aa4f-8bc08bb1ce61",
+      "filename": "image-88f73a27-8910-47bf-aa4f-8bc08bb1ce61.jpg",
+      "path": "product-catalog/products/338dbf79-1c0a-46ea-bf34-9208bb345510/images/image-88f73a27-8910-47bf-aa4f-8bc08bb1ce61.jpg",
+      "isPrimary": true,
+      "sortOrder": 2,
+      "width": 3024,
+      "height": 3702,
+      "sizeBytes": 760906
+    },
+    {
+      "id": "ab4171ba-26ac-4a88-b5db-69814e51a1b9",
+      "filename": "image-ab4171ba-26ac-4a88-b5db-69814e51a1b9.jpg",
+      "path": "product-catalog/products/338dbf79-1c0a-46ea-bf34-9208bb345510/images/image-ab4171ba-26ac-4a88-b5db-69814e51a1b9.jpg",
+      "isPrimary": false,
+      "sortOrder": 3,
+      "width": 3345,
+      "height": 4096,
+      "sizeBytes": 1115635
+    }
+  ],
+  "createdAt": "2026-11-17T16:31:02.706Z",
+  "updatedAt": "2026-11-17T16:31:02.707Z"
+}
