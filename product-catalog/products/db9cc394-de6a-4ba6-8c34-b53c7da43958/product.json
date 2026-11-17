@@ -1,0 +1,37 @@
+{
+  "id": "db9cc394-de6a-4ba6-8c34-b53c7da43958",
+  "sku": "four",
+  "name": "Green Leaf",
+  "categoryId": "tray",
+  "categoryName": "Tray",
+  "price": {
+    "amount": 499,
+    "currency": "INR"
+  },
+  "description": "A little piece of nature, handcrafted with love. 🌿\n\nInspired by the beauty of leaves, this little creation brings a soft, earthy touch to your everyday spaces.\n\nMade slowly, with love, by MAISON MORA.\n\nLittle objects, lasting beauty. 🤎",
+  "dimensions": null,
+  "images": [
+    {
+      "id": "340c16e3-7abb-4b41-9adb-07800bce8d6f",
+      "filename": "image-340c16e3-7abb-4b41-9adb-07800bce8d6f.jpg",
+      "path": "product-catalog/products/db9cc394-de6a-4ba6-8c34-b53c7da43958/images/image-340c16e3-7abb-4b41-9adb-07800bce8d6f.jpg",
+      "isPrimary": true,
+      "sortOrder": 1,
+      "width": 3511,
+      "height": 4096,
+      "sizeBytes": 832670
+    },
+    {
+      "id": "74ea3ca1-8093-4e98-8be7-2552ffb3201c",
+      "filename": "image-74ea3ca1-8093-4e98-8be7-2552ffb3201c.jpg",
+      "path": "product-catalog/products/db9cc394-de6a-4ba6-8c34-b53c7da43958/images/image-74ea3ca1-8093-4e98-8be7-2552ffb3201c.jpg",
+      "isPrimary": false,
+      "sortOrder": 2,
+      "width": 1086,
+      "height": 1266,
+      "sizeBytes": 371501
+    }
+  ],
+  "createdAt": "2026-11-17T17:03:57.197Z",
+  "updatedAt": "2026-11-17T17:03:57.197Z"
+}

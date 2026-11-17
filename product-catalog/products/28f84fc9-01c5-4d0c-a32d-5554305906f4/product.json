@@ -1,0 +1,27 @@
+{
+  "id": "28f84fc9-01c5-4d0c-a32d-5554305906f4",
+  "sku": "Nine",
+  "name": "Timeless Starfish",
+  "categoryId": "wall-decor",
+  "categoryName": "Wall Decor",
+  "price": {
+    "amount": 299,
+    "currency": "INR"
+  },
+  "description": "A little piece of the ocean, handcrafted with love. ⭐🤍\n\nInspired by nature and made to add a delicate touch to your favourite corner.\n\nSimple details. Timeless charm.\n\nMAISON MORA\nLittle objects, lasting beauty.",
+  "dimensions": null,
+  "images": [
+    {
+      "id": "f69a3166-7741-4d5a-a660-dd0dc9a38a63",
+      "filename": "image-f69a3166-7741-4d5a-a660-dd0dc9a38a63.jpg",
+      "path": "product-catalog/products/28f84fc9-01c5-4d0c-a32d-5554305906f4/images/image-f69a3166-7741-4d5a-a660-dd0dc9a38a63.jpg",
+      "isPrimary": true,
+      "sortOrder": 1,
+      "width": 3072,
+      "height": 4096,
+      "sizeBytes": 1410239
+    }
+  ],
+  "createdAt": "2026-11-17T17:17:43.779Z",
+  "updatedAt": "2026-11-17T17:17:43.780Z"
+}

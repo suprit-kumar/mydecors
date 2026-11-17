@@ -1,0 +1,47 @@
+{
+  "id": "cd3aa886-ef43-4235-af45-683b052e332b",
+  "sku": "Fivew",
+  "name": "Lotus Petal",
+  "categoryId": "candle-holders",
+  "categoryName": "Candle Holders",
+  "price": {
+    "amount": 599,
+    "currency": "INR"
+  },
+  "description": "A little bloom, a little glow. 🌸✨\n\nInspired by the beauty of lotus petals, handcrafted to bring a soft, elegant touch to your space.\n\nIntroducing our Lotus Glow Bowl 🤍\n\nMade with love, finished with care.\n\nLittle objects, lasting beauty. 🤎",
+  "dimensions": null,
+  "images": [
+    {
+      "id": "c511d2b6-d529-4359-ab39-ca95cb7015d0",
+      "filename": "image-c511d2b6-d529-4359-ab39-ca95cb7015d0.jpg",
+      "path": "product-catalog/products/cd3aa886-ef43-4235-af45-683b052e332b/images/image-c511d2b6-d529-4359-ab39-ca95cb7015d0.jpg",
+      "isPrimary": true,
+      "sortOrder": 1,
+      "width": 3072,
+      "height": 4096,
+      "sizeBytes": 566235
+    },
+    {
+      "id": "94791164-dc4d-41e4-a88c-5285299f006f",
+      "filename": "image-94791164-dc4d-41e4-a88c-5285299f006f.jpg",
+      "path": "product-catalog/products/cd3aa886-ef43-4235-af45-683b052e332b/images/image-94791164-dc4d-41e4-a88c-5285299f006f.jpg",
+      "isPrimary": false,
+      "sortOrder": 2,
+      "width": 2393,
+      "height": 3191,
+      "sizeBytes": 204073
+    },
+    {
+      "id": "c7325cdf-8f05-42b0-960d-621ba00e777b",
+      "filename": "image-c7325cdf-8f05-42b0-960d-621ba00e777b.jpg",
+      "path": "product-catalog/products/cd3aa886-ef43-4235-af45-683b052e332b/images/image-c7325cdf-8f05-42b0-960d-621ba00e777b.jpg",
+      "isPrimary": false,
+      "sortOrder": 3,
+      "width": 3072,
+      "height": 4096,
+      "sizeBytes": 568503
+    }
+  ],
+  "createdAt": "2026-11-17T17:06:17.149Z",
+  "updatedAt": "2026-11-17T17:06:17.149Z"
+}

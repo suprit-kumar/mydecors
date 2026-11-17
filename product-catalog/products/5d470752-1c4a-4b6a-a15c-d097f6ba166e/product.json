@@ -1,0 +1,47 @@
+{
+  "id": "5d470752-1c4a-4b6a-a15c-d097f6ba166e",
+  "sku": "Seven",
+  "name": "Pink Marbled Leaf Tray",
+  "categoryId": "tray",
+  "categoryName": "Tray",
+  "price": {
+    "amount": 599,
+    "currency": "INR"
+  },
+  "description": "A soft blush, a touch of marbling, and a little handmade charm. 🌸\n\nInspired by delicate details, our Pink Marbled Leaf Tray is made to bring beauty to your everyday spaces.\n\nHandcrafted with love by MAISON MORA. 🤎",
+  "dimensions": null,
+  "images": [
+    {
+      "id": "ecfd34ac-ca54-4848-bcae-3d6ea0c4fa1c",
+      "filename": "image-ecfd34ac-ca54-4848-bcae-3d6ea0c4fa1c.jpg",
+      "path": "product-catalog/products/5d470752-1c4a-4b6a-a15c-d097f6ba166e/images/image-ecfd34ac-ca54-4848-bcae-3d6ea0c4fa1c.jpg",
+      "isPrimary": true,
+      "sortOrder": 1,
+      "width": 4096,
+      "height": 4096,
+      "sizeBytes": 849060
+    },
+    {
+      "id": "6c2d547f-5a6b-4ce2-bc0e-875fd2a23b2b",
+      "filename": "image-6c2d547f-5a6b-4ce2-bc0e-875fd2a23b2b.jpg",
+      "path": "product-catalog/products/5d470752-1c4a-4b6a-a15c-d097f6ba166e/images/image-6c2d547f-5a6b-4ce2-bc0e-875fd2a23b2b.jpg",
+      "isPrimary": false,
+      "sortOrder": 2,
+      "width": 4096,
+      "height": 4096,
+      "sizeBytes": 1133228
+    },
+    {
+      "id": "a263b3d5-9aa0-40b0-92d5-fdc5d86f33b9",
+      "filename": "image-a263b3d5-9aa0-40b0-92d5-fdc5d86f33b9.jpg",
+      "path": "product-catalog/products/5d470752-1c4a-4b6a-a15c-d097f6ba166e/images/image-a263b3d5-9aa0-40b0-92d5-fdc5d86f33b9.jpg",
+      "isPrimary": false,
+      "sortOrder": 3,
+      "width": 4095,
+      "height": 4095,
+      "sizeBytes": 562001
+    }
+  ],
+  "createdAt": "2026-11-17T17:11:47.764Z",
+  "updatedAt": "2026-11-17T17:11:47.764Z"
+}

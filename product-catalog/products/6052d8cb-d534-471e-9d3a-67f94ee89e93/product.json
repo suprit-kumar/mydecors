@@ -1,0 +1,47 @@
+{
+  "id": "6052d8cb-d534-471e-9d3a-67f94ee89e93",
+  "sku": "Three",
+  "name": "Blush Bloom Tray",
+  "categoryId": "tray",
+  "categoryName": "Tray",
+  "price": {
+    "amount": 399,
+    "currency": "INR"
+  },
+  "description": "A little bloom of pink, made to hold your little treasures. 🌸\n\nHandcrafted with love, this Blush Bloom Tray adds a sweet touch to your everyday spaces.\n\nPerfect for your little accessories and pretty keepsakes. 🤍",
+  "dimensions": null,
+  "images": [
+    {
+      "id": "5a246fbe-1a16-4e6c-bf7e-4aa61c991341",
+      "filename": "image-5a246fbe-1a16-4e6c-bf7e-4aa61c991341.jpg",
+      "path": "product-catalog/products/6052d8cb-d534-471e-9d3a-67f94ee89e93/images/image-5a246fbe-1a16-4e6c-bf7e-4aa61c991341.jpg",
+      "isPrimary": true,
+      "sortOrder": 1,
+      "width": 3072,
+      "height": 4096,
+      "sizeBytes": 354951
+    },
+    {
+      "id": "d9b3af30-597c-4b31-9ad9-c177dbb662dd",
+      "filename": "image-d9b3af30-597c-4b31-9ad9-c177dbb662dd.jpg",
+      "path": "product-catalog/products/6052d8cb-d534-471e-9d3a-67f94ee89e93/images/image-d9b3af30-597c-4b31-9ad9-c177dbb662dd.jpg",
+      "isPrimary": false,
+      "sortOrder": 2,
+      "width": 3072,
+      "height": 4096,
+      "sizeBytes": 443467
+    },
+    {
+      "id": "eb0e3486-a91b-4345-92e6-8aa4c02da68e",
+      "filename": "image-eb0e3486-a91b-4345-92e6-8aa4c02da68e.jpg",
+      "path": "product-catalog/products/6052d8cb-d534-471e-9d3a-67f94ee89e93/images/image-eb0e3486-a91b-4345-92e6-8aa4c02da68e.jpg",
+      "isPrimary": false,
+      "sortOrder": 3,
+      "width": 3024,
+      "height": 4032,
+      "sizeBytes": 433044
+    }
+  ],
+  "createdAt": "2026-11-17T16:59:52.995Z",
+  "updatedAt": "2026-11-17T16:59:52.995Z"
+}

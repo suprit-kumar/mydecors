@@ -1,12 +1,33 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-11-17T16:43:42.552Z",
+  "updatedAt": "2026-11-17T17:17:50.663Z",
   "products": [
     {
       "id": "338dbf79-1c0a-46ea-bf34-9208bb345510"
     },
     {
       "id": "e1acc377-7c43-42f5-a252-f029783abfed"
+    },
+    {
+      "id": "6052d8cb-d534-471e-9d3a-67f94ee89e93"
+    },
+    {
+      "id": "db9cc394-de6a-4ba6-8c34-b53c7da43958"
+    },
+    {
+      "id": "cd3aa886-ef43-4235-af45-683b052e332b"
+    },
+    {
+      "id": "b65aaff1-cc0c-44c8-8937-aecc7877c5a7"
+    },
+    {
+      "id": "5d470752-1c4a-4b6a-a15c-d097f6ba166e"
+    },
+    {
+      "id": "ca4b1930-9e74-4cb7-873b-cceb9b2b0b27"
+    },
+    {
+      "id": "28f84fc9-01c5-4d0c-a32d-5554305906f4"
     }
   ]
 }
