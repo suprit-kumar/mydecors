@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-11-17T16:26:54.779Z",
+  "updatedAt": "2026-11-17T16:27:02.507Z",
   "categories": [
     {
       "id": "vases",
@@ -19,6 +19,12 @@
       "name": "Candle Holders",
       "createdAt": "2026-11-17T16:26:54.779Z",
       "updatedAt": "2026-11-17T16:26:54.779Z"
+    },
+    {
+      "id": "wall-decor",
+      "name": "Wall Decor",
+      "createdAt": "2026-11-17T16:27:02.507Z",
+      "updatedAt": "2026-11-17T16:27:02.507Z"
     }
   ]
 }
