@@ -1,0 +1,37 @@
+{
+  "id": "ca4b1930-9e74-4cb7-873b-cceb9b2b0b27",
+  "sku": "Eight",
+  "name": "Lavender Touch Leaf",
+  "categoryId": "tray",
+  "categoryName": "Tray",
+  "price": {
+    "amount": 399,
+    "currency": "INR"
+  },
+  "description": "A little touch of lavender, inspired by nature. 💜🍃\n\nHandcrafted with delicate leaf details, this little beauty is made to bring a soft, elegant charm to your space.\n\nEvery curve, every detail, made with love.\n\nMAISON MORA\nLittle objects, lasting beauty.",
+  "dimensions": null,
+  "images": [
+    {
+      "id": "b3eecf27-f038-4a55-b78b-c9a4bf6f8631",
+      "filename": "image-b3eecf27-f038-4a55-b78b-c9a4bf6f8631.jpg",
+      "path": "product-catalog/products/ca4b1930-9e74-4cb7-873b-cceb9b2b0b27/images/image-b3eecf27-f038-4a55-b78b-c9a4bf6f8631.jpg",
+      "isPrimary": true,
+      "sortOrder": 1,
+      "width": 1170,
+      "height": 1273,
+      "sizeBytes": 112711
+    },
+    {
+      "id": "e3c50394-ccce-4183-89f7-6fec7074f896",
+      "filename": "image-e3c50394-ccce-4183-89f7-6fec7074f896.jpg",
+      "path": "product-catalog/products/ca4b1930-9e74-4cb7-873b-cceb9b2b0b27/images/image-e3c50394-ccce-4183-89f7-6fec7074f896.jpg",
+      "isPrimary": false,
+      "sortOrder": 2,
+      "width": 1170,
+      "height": 1273,
+      "sizeBytes": 327337
+    }
+  ],
+  "createdAt": "2026-11-17T17:15:09.109Z",
+  "updatedAt": "2026-11-17T17:15:09.109Z"
+}
