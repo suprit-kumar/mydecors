@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-11-17T16:26:27.925Z",
+  "updatedAt": "2026-11-17T16:26:54.779Z",
   "categories": [
     {
       "id": "vases",
@@ -13,6 +13,12 @@
       "name": "Pots",
       "createdAt": "2026-11-17T16:26:27.925Z",
       "updatedAt": "2026-11-17T16:26:27.925Z"
+    },
+    {
+      "id": "candle-holders",
+      "name": "Candle Holders",
+      "createdAt": "2026-11-17T16:26:54.779Z",
+      "updatedAt": "2026-11-17T16:26:54.779Z"
     }
   ]
 }
