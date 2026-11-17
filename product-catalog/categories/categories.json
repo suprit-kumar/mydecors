@@ -1,5 +1,12 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-11-17T16:22:03.005Z",
-  "categories": []
+  "updatedAt": "2026-11-17T16:26:21.669Z",
+  "categories": [
+    {
+      "id": "vases",
+      "name": "Vases",
+      "createdAt": "2026-11-17T16:26:21.667Z",
+      "updatedAt": "2026-11-17T16:26:21.667Z"
+    }
+  ]
 }
