@@ -23,16 +23,16 @@ const products = [
   {id:22,name:"The Glow Holder",price:890,category:"Candle Holders",rating:4.9,description:"A warm, handmade accent for slow evenings and candlelit corners.",image:images.candle,alternate:images.ceramics,badge:"BESTSELLER",popular:95},
   {id:21,name:"The Form Study",price:2490,category:"Sculptures",rating:5.0,description:"An expressive little sculpture that brings a touch of art to the everyday.",image:images.pottery,alternate:images.vase,badge:"LIMITED",popular:92},
   {id:20,name:"Mira Bud Vase",price:990,category:"Vases",rating:4.8,description:"A petite vessel for a single stem, with a quietly beautiful silhouette.",image:images.ceramics,alternate:images.vase,popular:91},
-  {id:19,name:"Terra Planter",price:1590,category:"Pots",rating:4.7,description:"A natural, tactile planter made to bring a little life indoors.",image:images.pot,alternate:images.pottery,popular:87},
+  {id:19,name:"Terra Planter",price:1590,category:"Pots",rating:4.7,description:"A tactile planter made to bring a little life indoors.",image:images.pot,alternate:images.pottery,popular:87},
   {id:18,name:"Moonlit Wall Disc",price:1790,category:"Wall Decor",rating:4.8,description:"An organic wall accent that adds depth and warmth to your favourite corner.",image:images.interior,alternate:images.room,badge:"NEW",popular:85},
-  {id:17,name:"Ritual Candle Cup",price:790,category:"Candle Holders",rating:4.7,description:"A simple clay candle cup made for moments of pause.",image:images.candle,alternate:images.pottery,popular:82},
+  {id:17,name:"Ritual Candle Cup",price:790,category:"Candle Holders",rating:4.7,description:"A simple candle holder made for moments of pause.",image:images.candle,alternate:images.pottery,popular:82},
   {id:16,name:"The Gathering Bowl",price:1490,category:"Table Decor",rating:4.9,description:"A sculptural table accent for the objects and moments you love.",image:images.pottery,alternate:images.ceramics,popular:90},
   {id:15,name:"Stillness Sculpture",price:2790,category:"Sculptures",rating:4.9,description:"An abstract form with gentle lines and a beautifully tactile finish.",image:images.ceramics,alternate:images.pottery,popular:88},
   {id:14,name:"The Arch Vase",price:2190,category:"Vases",rating:4.8,description:"A graceful silhouette to make flowers and spaces feel extra special.",image:images.vase,alternate:images.ceramics,popular:86},
-  {id:13,name:"Little Earth Pot",price:690,category:"Pots",rating:4.7,description:"A little clay pot with a lot of personality.",image:images.pot,alternate:images.pottery,popular:80},
+  {id:13,name:"Little Earth Pot",price:690,category:"Pots",rating:4.7,description:"A little pot with a lot of personality.",image:images.pot,alternate:images.pottery,popular:80},
   {id:12,name:"Sol Wall Hanging",price:1990,category:"Wall Decor",rating:4.8,description:"A sun-inspired handmade detail for a considered wall.",image:images.table,alternate:images.interior,popular:78},
   {id:11,name:"The Dusk Duo",price:1690,category:"Candle Holders",rating:4.9,description:"A pair of candle holders for a softer kind of evening.",image:images.candle,alternate:images.ceramics,popular:84},
-  {id:10,name:"Clay Nest Tray",price:1190,category:"Table Decor",rating:4.8,description:"A small catch-all for the things you reach for every day.",image:images.pottery,alternate:images.table,popular:77},
+  {id:10,name:"Nest Tray",price:1190,category:"Table Decor",rating:4.8,description:"A small catch-all for the things you reach for every day.",image:images.pottery,alternate:images.table,popular:77},
   {id:9,name:"The Muse Object",price:2290,category:"Sculptures",rating:4.8,description:"A conversation-starting shape, made slowly and finished by hand.",image:images.ceramics,alternate:images.vase,popular:79},
   {id:8,name:"Petal Vase",price:1390,category:"Vases",rating:4.7,description:"A delicate form inspired by petals and the beauty of new beginnings.",image:images.vase,alternate:images.pottery,popular:75},
   {id:7,name:"Pebble Incense Rest",price:590,category:"Accessories",rating:4.8,description:"A little ritual object for a calmer corner of your home.",image:images.pottery,alternate:images.ceramics,popular:83},
@@ -40,7 +40,7 @@ const products = [
   {id:5,name:"Organic Wall Accent",price:2490,category:"Wall Decor",rating:4.9,description:"A textural, earth-inspired piece for walls with a story to tell.",image:images.interior,alternate:images.table,popular:74},
   {id:4,name:"The Keepsake Box",price:1590,category:"Accessories",rating:4.8,description:"A thoughtful home for the little things that mean the most.",image:images.pottery,alternate:images.ceramics,popular:72},
   {id:3,name:"Your Story Vase",price:2990,category:"Custom Designs",rating:5.0,description:"A sample custom vase concept. Get in touch to discuss your own design.",image:images.vase,alternate:images.ceramics,badge:"CUSTOM",popular:76},
-  {id:2,name:"The Personal Piece",price:3490,category:"Custom Designs",rating:4.9,description:"A sample bespoke clay object, imagined around your space and story.",image:images.pottery,alternate:images.vase,badge:"CUSTOM",popular:70},
+  {id:2,name:"The Personal Piece",price:3490,category:"Custom Designs",rating:4.9,description:"A sample bespoke décor piece, imagined around your space and story.",image:images.pottery,alternate:images.vase,badge:"CUSTOM",popular:70},
   {id:1,name:"Soft Light Holder",price:1090,category:"Candle Holders",rating:4.7,description:"A gentle glow and an organic form for your most peaceful evenings.",image:images.candle,alternate:images.pottery,popular:71}
 ];
 const reviews = [
@@ -101,7 +101,7 @@ function copyInstagramMessage(message) {
   );
 }
 function productInquiryMessage(product, quantity = 1) {
-  return `Hello, I would like to buy this product from Maisonmora.Home:\n\nProduct Name: ${product.name}\nPrice: ${money(product.price)}\nQuantity: ${quantity}\nProduct Image: ${product.image}\n\nPlease confirm availability, delivery, and payment details.`;
+  return `Hello, I would like to buy this product from MAISON MORA:\n\nProduct Name: ${product.name}\nPrice: ${money(product.price)}\nQuantity: ${quantity}\nProduct Image: ${product.image}\n\nPlease confirm availability, delivery, and payment details.`;
 }
 function cartInquiryMessage() {
   const lines = cart.map(item => {
@@ -109,7 +109,7 @@ function cartInquiryMessage() {
     return `${item.quantity} x ${product.name} — ${money(product.price * item.quantity)}\nProduct Image: ${product.image}`;
   });
   const total = cart.reduce((sum, item) => sum + productById(item.id).price * item.quantity, 0);
-  return `Hello, I would like to order these products from Maisonmora.Home:\n\n${lines.join("\n\n")}\n\nSubtotal: ${money(total)}\n\nPlease confirm availability, delivery, and payment details.`;
+  return `Hello, I would like to order these products from MAISON MORA:\n\n${lines.join("\n\n")}\n\nSubtotal: ${money(total)}\n\nPlease confirm availability, delivery, and payment details.`;
 }
 function productCard(product) {
   const saved = wishlist.includes(product.id);
