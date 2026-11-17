@@ -1,0 +1,42 @@
+{
+  "id": "e1acc377-7c43-42f5-a252-f029783abfed",
+  "sku": "Two",
+  "name": "Starfish Tray",
+  "categoryId": "pots",
+  "categoryName": "Pots",
+  "price": {
+    "amount": 499,
+    "currency": "INR"
+  },
+  "description": "A little piece of elegance, shaped by hand. 🤍\n\nIntroducing our Lavender Starfish Tray — a delicate blend of soft lavender tones and a beautiful textured finish.\n\nDesigned to hold your favourite little treasures, while adding a charming touch to your space. ✨\n\nHandcrafted with love by MAISON MORA.\n\nLittle objects, lasting beauty.",
+  "dimensions": {
+    "length": 6,
+    "width": 6,
+    "height": 2,
+    "unit": "inch"
+  },
+  "images": [
+    {
+      "id": "6f980d01-c599-4d96-8b68-9506c1770fb2",
+      "filename": "image-6f980d01-c599-4d96-8b68-9506c1770fb2.jpg",
+      "path": "product-catalog/products/e1acc377-7c43-42f5-a252-f029783abfed/images/image-6f980d01-c599-4d96-8b68-9506c1770fb2.jpg",
+      "isPrimary": true,
+      "sortOrder": 1,
+      "width": 3072,
+      "height": 4096,
+      "sizeBytes": 531743
+    },
+    {
+      "id": "4dd07d3c-34ee-4e3d-8315-032ddc5ced5f",
+      "filename": "image-4dd07d3c-34ee-4e3d-8315-032ddc5ced5f.jpg",
+      "path": "product-catalog/products/e1acc377-7c43-42f5-a252-f029783abfed/images/image-4dd07d3c-34ee-4e3d-8315-032ddc5ced5f.jpg",
+      "isPrimary": false,
+      "sortOrder": 2,
+      "width": 3024,
+      "height": 4032,
+      "sizeBytes": 395206
+    }
+  ],
+  "createdAt": "2026-11-17T16:43:32.398Z",
+  "updatedAt": "2026-11-17T16:43:32.399Z"
+}
