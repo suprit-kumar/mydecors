@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-11-17T16:27:02.507Z",
+  "updatedAt": "2026-11-17T16:58:27.250Z",
   "categories": [
     {
       "id": "vases",
@@ -25,6 +25,12 @@
       "name": "Wall Decor",
       "createdAt": "2026-11-17T16:27:02.507Z",
       "updatedAt": "2026-11-17T16:27:02.507Z"
+    },
+    {
+      "id": "tray",
+      "name": "Tray",
+      "createdAt": "2026-11-17T16:58:27.233Z",
+      "updatedAt": "2026-11-17T16:58:27.233Z"
     }
   ]
 }
